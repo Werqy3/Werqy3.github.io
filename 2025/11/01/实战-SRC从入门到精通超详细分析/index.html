@@ -6,13 +6,74 @@
   
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
+  <meta name="description" content="首先思路肯定是后台漏洞挖掘出洞概率肯定是大于前台的，白盒漏洞挖掘肯定是大于黑盒的，所以这里一般开始挖src的师傅肯定是用资产测绘去寻找存在注册接口的站进行挖掘，但是这种漏洞肯定是被挖干净了的，但不忽略还有一些站它的注册接口是没用在页面上面的，需要我们自己在js里面查找。 寻找隐藏注册接口接入后台测试登录框起手，测弱口令，sql注入没有发现问题，到这里大概就是去找未授权接口了，看了下熊猫头，也是没有">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:url" content="http://example.com/2025/11/01/%E5%AE%9E%E6%88%98-SRC%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E7%B2%BE%E9%80%9A%E8%B6%85%E8%AF%A6%E7%BB%86%E5%88%86%E6%9E%90/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="首先思路肯定是后台漏洞挖掘出洞概率肯定是大于前台的，白盒漏洞挖掘肯定是大于黑盒的，所以这里一般开始挖src的师傅肯定是用资产测绘去寻找存在注册接口的站进行挖掘，但是这种漏洞肯定是被挖干净了的，但不忽略还有一些站它的注册接口是没用在页面上面的，需要我们自己在js里面查找。 寻找隐藏注册接口接入后台测试登录框起手，测弱口令，sql注入没有发现问题，到这里大概就是去找未授权接口了，看了下熊猫头，也是没有">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1755742830289-275a0043-b58b-4e48-a7f7-29e5aa309ca9.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1755742999106-6788def8-a387-453d-bf05-e753e10f1341.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1755743254985-3687f6af-133c-46a6-8804-b8268b5c5288.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1755743312131-78ad9f51-1577-4a71-b8ae-16e532208ff1.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1755743460207-e883d4f8-3408-43bd-8d62-75870e910651.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1755743542566-91979dda-bb47-4d26-824a-b5daf16bb602.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1755743729751-ef422eea-95ea-4045-b147-b708ffcb58f2.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1755744078549-71f7fbba-d04e-43af-9d23-101350de1a6e.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1755755348685-858d68e1-a8db-48e9-9b5b-12b322ce5880.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1755745846386-e108ecb6-6807-48ba-9f03-72ff21c030ef.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1755755370572-ffc69c44-a552-4f01-a2c4-25f84f0a375c.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1754916946380-4b61e6ff-9ac6-4154-b7c2-85bf308cf32d.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1755745917567-06ddaf0e-7d2c-4dea-8e79-e789acce85cd.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1755745971807-e5349511-9fa0-4975-84da-5e0493d81fd7.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1755744493991-53db7adc-a896-4874-aa72-52b5f7cca7f5.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1755744143015-219a2fb8-28e2-4c54-94b9-c178a4e5bc61.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1755744534387-cf7605a6-5234-4453-bdf4-da08d76bdc26.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1756459106147-762bc4c2-bf98-4129-9df0-62976112f537.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1756459253678-2643e3e0-43b8-4702-afa1-81aa97f36112.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1756459373185-18b7c292-a2e9-42ae-af42-f2172d099af8.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1756459407214-17a3bb2c-b92c-4352-a5e2-a4fb48cf4262.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1756459489222-a1cb2ddc-5f6b-4499-97e8-87205d53be54.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1756459615217-f9da1348-f815-4027-9fac-59fb8e5694c1.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1756459658615-151f4b2f-1e1d-4c8e-8d4f-d2f87c03e286.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1756459739839-3aeab318-d165-433a-b916-14abf6b903d6.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1756459773052-6ce05aed-d2a7-4a27-b427-04ecdb74eb10.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1757584943507-069a08a6-b1c9-4e51-8fb4-ffee643de6b4.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1757585186138-e2c29745-b1ff-4505-8fdd-e32aedf50134.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1757585169083-2b46dacc-3508-49f5-8a0e-e74b2d6e1e41.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1757585592404-44727101-14c3-492b-b116-50b40707ea90.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1757585654500-4ed2e7a4-638d-484d-94ed-0a77aa49b603.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1757581376237-f78f6e4b-36e4-48fb-b907-fa3b72993f34.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1757581463512-93ca040f-1b40-46c4-b370-39a0486bbf33.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1757581497713-a6308be8-97bd-447c-99b8-0014c4a04f6f.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1756792984288-7613813e-fd22-40b5-b7b3-444f96920343.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1756793203295-1d415045-33d9-4457-a300-04cb758b377b.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1756793246338-f7f2a8eb-3b2f-405b-8099-1360d459b1ef.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1757154975638-d30eceee-5a4f-43db-b9ca-effc08e1d22b.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1757153238876-3c97e558-b4d2-4296-9ee0-cd54b99a08fa.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1757154263592-44a9d524-8103-4adb-a16e-223b94996810.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1757154283697-13dcd707-8b56-472d-a0fe-e073f3246ca3.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1757154560366-4be93a1d-ea50-4228-9c43-d8d97dbfe9c9.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1757580195918-fec9b693-40d8-4a60-87ec-633c60e9ad05.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1757580256839-33880198-dea8-45f9-a616-87b7a6c2e8ea.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1757580443103-96fc10c9-641c-4c2e-92f3-e500c6c312ea.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1757580643524-d272d6df-d3d8-480d-834e-7211602604a2.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1757580745916-3d5b8707-1a07-4ba7-ad45-efb0d627b0a9.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1757581036672-37715644-7167-4bca-b64c-50441002d040.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1757156061568-fef7369c-8346-4b6a-87b7-2ad5c98aef3a.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1757156132071-c171c654-46ea-4143-9c59-f282e36c2004.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1757602091866-ff802d39-708d-430a-8cd0-f692de3fce1b.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1757602171059-59513c2f-cc74-4e11-828e-a1c13eafe906.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1757602353138-4f7ed90f-9b0b-4333-991a-33d10530968b.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1757602372296-60050c1c-868b-4c94-93ed-e328914dd94d.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1757602464607-7b2e3aef-00d2-498f-a5df-4480d2032e29.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1757602562289-6063f0b8-3705-4748-a326-443557289ede.png">
+<meta property="article:published_time" content="2025-11-01T08:51:15.422Z">
+<meta property="article:modified_time" content="2025-10-24T12:36:16.721Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2025/png/44876878/1755742830289-275a0043-b58b-4e48-a7f7-29e5aa309ca9.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -69,9 +130,7 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-实战-SRC从入门到精通超详细分析" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-实战-SRC从入门到精通超详细分析" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2025/11/01/%E5%AE%9E%E6%88%98-SRC%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E7%B2%BE%E9%80%9A%E8%B6%85%E8%AF%A6%E7%BB%86%E5%88%86%E6%9E%90/" class="article-date">
   <time class="dt-published" datetime="2025-11-01T08:51:15.422Z" itemprop="datePublished">2025-11-01</time>
@@ -232,62 +291,19 @@
     </footer>
   </div>
   
-</article>
-
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/11/01/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2025-11-01T07:50:58.927Z" itemprop="datePublished">2025-11-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/11/01/hello-world/">Hello World</a>
-    </h1>
+    <a href="/2025/11/01/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/11/01/hello-world/" data-id="cmhfzhmlr0000u4hhgh9mcu6z" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-
-  
 
 
 </section>
